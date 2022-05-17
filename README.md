@@ -10,7 +10,7 @@ Neural Information Processing Systems, 2012
 See the 'Demos' folder to get started
 
 ## License
-Copyright (C) 2013, James Robert Lloyd
+Copyright (C) 2013, [James Robert Lloyd](https://github.com/jamesrobertlloyd)
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
