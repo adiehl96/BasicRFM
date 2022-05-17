@@ -1,11 +1,15 @@
-Code to perform inference in the random function model as described in:
+# BasicRFM
+This repository contains code to perform inference in the random function model as described in:
 
+```
 Random function priors for exchangeable arrays with applications to graphs and relational data
 James Robert Lloyd, Peter Orbanz, Zoubin Ghahramani, Daniel Roy
 Neural Information Processing Systems, 2012
-
+```
+## Usage 
 See the 'Demos' folder to get started
 
+## License
 Copyright (C) 2013, James Robert Lloyd
 
 This program is free software: you can redistribute it and/or modify
