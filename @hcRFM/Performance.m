@@ -14,7 +14,6 @@ function performance = Performance( obj, predict, prediction )
   % Call various performance routines
   
   obj.performance.UU = obj.EvaluatePerformance_UU (prediction);
-  obj.performance.UCov = obj.EvaluatePerformance_UCov (prediction);
   
   % Return various stats
   

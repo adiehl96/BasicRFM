@@ -40,7 +40,6 @@ function GewekeTest( obj, test_function )
     end
     if mod(i, obj.LV_modulus) == 0 
       RFM_Posterior.SS_U (obj.U_width, obj.U_step_out, obj.U_max_attempts);
-      RFM_Posterior.SS_V (obj.V_width, obj.V_step_out, obj.V_max_attempts);
     end
     if mod(i, obj.pp_modulus) == 0 
       RFM_Posterior.SS_pp (obj.pp_iterations, obj.pp_width, obj.pp_step_out,...

@@ -42,65 +42,47 @@ classdef hcRFM < handle
     % Local reference to data
     
     data_UU
-    
-    data_UCov
-    
+        
     % Dimensions / specifications of model
     
     D_L_U = 1; % Number of latent row dimensions
-    D_L_V = 1; % Number of latent col dimensions
     n_pp_UU = 50; % Number of pseudo points - this might become a cell in future
-    n_pp_UCov = 50; % Number of pseudo points - this might become a cell in future
     
     % Prior specification
     
     ObservationModel_UU = ObservationModels.Logit; % Could become a cell
-    ObservationModel_UCov = cell(0);
     
     DataPrecision_UU = 1; % Observation noise precision for Gaussian likelihood
-    DataPrecision_UCov = cell(0); % Observation noise precision for Gaussian likelihood
     
     arrayKern_UU % Kernel for 2-array (same for each array dimension)
-    arrayKern_UCov % Kernel for 2-array (same for each array dimension)
     U_sd = 1;
     pp_UU_sd = 1;
-    pp_UCov_sd = 1;
     
     % Variables
     
     U = []; % Row r.v.s (rows x latent dimensions)
     pp_UU = cell(0); % 2-array pseudo points
-    pp_UCov = cell(0); % 1-array pseudo points
     T_UU = cell(0); % Target points of sparse GP
-    T_UCov = cell(0); % Values of non-sparse GP
     
     % Cached quantities
     
     ip_UU = cell(0); % 2-array training input points
-    ip_UCov = cell(0); % 1-array training input points
     
     pred_ip_UU = cell(0); % 2-array test input points
-    pred_ip_UCov = cell(0); % 1-array test input points
     K_ip_pp_UU = cell(0); % Kernel matrix between input and pseudo points
-    K_ip_pp_UCov = cell(0); % Kernel matrix between input and pseudo points
     K_pp_pp_UU = cell(0); % Kernel matrix between pseudo points
-    K_pp_pp_UCov = cell(0); % Kernel matrix between pseudo points
     chol_K_pp_pp_UU = cell(0); % Cholesky decompostion of above
-    chol_K_pp_pp_UCov = cell(0); % Cholesky decompostion of above
     perm_UU = cell(0); % Saved permutation for MCMC mixing
     %%%% TODO - add more permutations
     iperm_UU = cell(0); % Saved inverse permutation for MCMC mixing
     
     prediction_UU = cell(0); % Saved predictions for each data set
-    prediction_UCov = cell(0); % Saved predictions for each data set
     performance;
     
     % Memory pre-allocation
     
     W_UU = cell(0); % Output of GP at input points
-    W_UCov = cell(0); % Output of GP at input points
     K_pred_pp_UU = cell(0); % Kernel matrix between prediction and pseudo points
-    K_pred_pp_UCov = cell(0); % Kernel matrix between prediction and pseudo points
     
   end
   
@@ -110,14 +92,11 @@ classdef hcRFM < handle
     
     llh = Prior_U (obj);
     llh = Prior_pp_UU (obj, index); % Prior for one set of pseudo points - determined by index
-    llh = Prior_pp_UCov (obj, index); % Prior for one set of pseudo points - determined by index
     
     % Likelihoods
     
     llh = Cond_llh_ArrayParams_UU (obj, params);
-    llh = Cond_llh_ArrayParams_UCov (obj, params);
     llh = Cond_llh_pp_UU (obj, pp_index, array_index);
-    llh = Cond_llh_pp_UCov (obj, pp_index, array_index);
     llh = Cond_llh_U (obj, U_index, ~);
     
     % MCMC routines
@@ -148,11 +127,8 @@ classdef hcRFM < handle
     llh = llh (obj); % Full log likelihood; calculated using cache
     
     UpdateKernelMatrices_UU (obj);
-    UpdateKernelMatrices_UCov (obj);
     UpdateKernelMatrices_ip_UU (obj, ip_indices, array_index);
-    UpdateKernelMatrices_ip_UCov (obj, ip_indices, array_index);
     UpdateKernelMatrices_pp_UU (obj, pp_index, array_index);
-    UpdateKernelMatrices_pp_UCov (obj, pp_index, array_index);
     NewPermutation (obj);
     Permute (obj);
     InversePermute (obj);
@@ -164,7 +140,6 @@ classdef hcRFM < handle
     % Constructor
     function obj = hcRFM
       obj.arrayKern_UU   = vcKernel;
-      obj.arrayKern_UCov = vcKernel;
     end
       
   end

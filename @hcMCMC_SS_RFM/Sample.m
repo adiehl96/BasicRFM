@@ -74,7 +74,6 @@ function Sample( obj, newrun )
         case InitialisationMethods.Both
           if mod(repeat, 2) == 1
             obj.RFM.Init_U_MAP;
-            %obj.RFM.Init_V_MAP;
           else
             obj.RFM.Init_pp_T;
           end

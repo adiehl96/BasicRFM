@@ -9,13 +9,7 @@ function Initialise_PCA( obj )
   
   %%%% Do the above!
   
-  %obj.Init_U_Rand
-  %obj.Init_V_Rand
-  if ~isempty(obj.data_UCov.train_X_v)
-    obj.Init_U_PCA;
-  else
-    obj.Init_U_Rand;
-  end
+  obj.Init_U_Rand;
   
   obj.Init_pp_T;
   

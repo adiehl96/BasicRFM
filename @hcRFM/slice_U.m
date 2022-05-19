@@ -83,12 +83,6 @@ for mm = randperm(M)
       obj.UpdateKernelMatrices_ip_UU ((obj.data_UU.train_X_i{i} == mm) | ...
                                       (obj.data_UU.train_X_j{i} == mm), j);
     end
-    for j = 1:length(obj.data_UV.train_X_v)
-      obj.UpdateKernelMatrices_ip_UV ((obj.data_UV.train_X_i{i} == mm), j);
-    end
-    for j = 1:length(obj.data_UCov.train_X_v)
-      obj.UpdateKernelMatrices_ip_UCov ((obj.data_UCov.train_X_i{i} == mm), j);
-    end
   end
 end
 

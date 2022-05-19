@@ -16,17 +16,5 @@ function ESS_T( obj, iterations )
                         @(T) Cond_llh_2array (K_pp_pp_invK_ppip_t * T, obj.data_UU.train_X_v{i}, obj.ObservationModel_UU, params));
     end
   end
-  % Sample for the UCov arrays
-  for i = 1:length(obj.T_UCov)
-    % Precompute SoR mapping
-    K_pp_pp_invK_ppip_t = (obj.K_pp_pp_UCov{i} \ obj.K_ip_pp_UCov{i}')';
-    for iter = 1:iterations
-      % Perform one ESS step
-      % TODO - pass T by reference using object wrapper - better for memory
-      params.precision = obj.DataPrecision_UCov{i};
-      [obj.T_UCov{i} ~] = gppu_elliptical(obj.T_UCov{i}, obj.chol_K_pp_pp_UCov{i}, ...
-                        @(T) Cond_llh_2array (K_pp_pp_invK_ppip_t * T, obj.data_UCov.train_X_v{i}, obj.ObservationModel_UCov{i}, params));
-    end
-  end
 end
 

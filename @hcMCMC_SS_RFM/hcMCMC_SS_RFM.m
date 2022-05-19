@@ -78,8 +78,6 @@ classdef hcMCMC_SS_RFM < handle
     % Constructor
     function obj = hcMCMC_SS_RFM
       obj.kern_par_widths.UU = [0.5; 0.5; 0.1];
-      obj.kern_par_widths.VV = [0.5; 0.5; 0.1];
-      obj.kern_par_widths.UV = [0.5; 0.5; 0.1];
     end
     
   end

@@ -10,12 +10,7 @@ function state = State( obj )
   state.T_UU = obj.T_UU;
   state.arrayKern_UU = obj.arrayKern_UU;
   state.DataPrecision_UU = obj.DataPrecision_UU;
-    
-  state.pp_UCov = obj.pp_UCov;
-  state.T_UCov = obj.T_UCov;
-  state.arrayKern_UCov = obj.arrayKern_UCov;
-  state.DataPrecision_UCov = obj.DataPrecision_UCov;
-    
+        
   state.llh = obj.llh;
   
   %%%% TODO - add other things?

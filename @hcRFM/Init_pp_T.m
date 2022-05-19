@@ -25,20 +25,5 @@ function Init_pp_T( obj )
     end
   end
 
-
-
-  % Relating to UCov array
-  obj.pp_UCov = cell(length(obj.data_UCov.train_X_v), 1);
-  obj.T_UCov  = cell(length(obj.data_UCov.train_X_v), 1);
-  for i = 1:length(obj.pp_UCov)
-    n_pp_UCov_min = min(obj.n_pp_UCov, length(obj.data_UCov.train_X_v{i}));
-    % Initialise T as random normals
-    obj.T_UCov{i} = randn(n_pp_UCov_min, 1);
-    perm = randperm(length(obj.data_UCov.train_X_v{i}));
-    rand_subset = perm(1:n_pp_UCov_min);
-    % Initialise pseudo points as random subset of observations
-    obj.pp_UCov{i} = obj.U(rand_subset, :);
-  end
-
 end
 
