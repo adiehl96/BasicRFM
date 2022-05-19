@@ -20,30 +20,6 @@ function Talk (obj, performance)
    end
  end
 
- for i = 1:length(performance.VV)
-   fprintf('\n');
-   fprintf('VV %2d : ', i)
-   switch obj.ObservationModel_VV
-     case ObservationModels.Logit
-       fprintf('AUC = %0.2f : Error = %0.2f', performance.VV{i}.AUC, ...
-                                              performance.VV{i}.ClassifierError);
-     case {ObservationModels.Gaussian, ObservationModels.Poisson}
-       fprintf('RMSE = %0.2f : MAE = %0.2f', performance.VV{i}.RMSE, performance.VV{i}.MAE);
-   end
- end
-
- for i = 1:length(performance.UV)
-   fprintf('\n');
-   fprintf('UV %2d : ', i)
-   switch obj.ObservationModel_UV
-     case ObservationModels.Logit
-       fprintf('AUC = %0.2f : Error = %0.2f', performance.UV{i}.AUC, ...
-                                              performance.UV{i}.ClassifierError);
-     case {ObservationModels.Gaussian, ObservationModels.Poisson}
-       fprintf('RMSE = %0.2f : MAE = %0.2f', performance.UV{i}.RMSE, performance.UV{i}.MAE);
-   end
- end
-
  for i = 1:length(performance.UCov)
    fprintf('\n');
    fprintf(' U %2d : ', i)
@@ -56,17 +32,6 @@ function Talk (obj, performance)
    end
  end
 
- for i = 1:length(performance.VCov)
-   fprintf('\n');
-   fprintf(' V %2d : ', i)
-   switch obj.ObservationModel_VCov{i}
-     case ObservationModels.Logit
-       fprintf('AUC = %0.2f : Error = %0.2f', performance.VCov{i}.AUC, ...
-                                              performance.VCov{i}.ClassifierError);
-     case {ObservationModels.Gaussian, ObservationModels.Poisson}
-       fprintf('RMSE = %0.2f : MAE = %0.2f', performance.VCov{i}.RMSE, performance.VCov{i}.MAE);
-   end
- end
  
  
 end

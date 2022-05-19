@@ -17,11 +17,7 @@ classdef hcMCMC_SS_RFM < handle
     U_width = 4;
     U_step_out = true;
     U_max_attempts = 6;
-    
-    V_width = 4;
-    V_step_out = true;
-    V_max_attempts = 6;
-    
+        
     pp_width = 4;
     pp_step_out = false;
     pp_max_attempts = 6;
