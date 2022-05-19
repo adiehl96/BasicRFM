@@ -36,7 +36,6 @@ classdef hc2ArrayData < handle
     LoadFromFile(obj, filename, square, undirected, load_as_vectors);
     data = Partition(obj, folds, fold, seed);
     new_array = Duplicate(obj);
-    Flip(obj);
       
   end
   

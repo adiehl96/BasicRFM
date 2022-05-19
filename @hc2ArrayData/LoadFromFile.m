@@ -85,17 +85,6 @@ function LoadFromFile( obj, filename, square, undirected, load_as_vectors )
       obj.D_X = j; % What count did we get to?
     end
   elseif strcmp (Ext, '.mat')
-%     temp = load(filename, 'R');
-%     R = temp.R;
-%     obj.train_X_i = MakeCell(R.X_i);
-%     obj.train_X_j = MakeCell(R.X_j);
-%     obj.train_X_v = MakeCell(R.X_v);
-%     obj.M = MakeCell(R.M);
-%     obj.N = MakeCell(R.N);
-%     obj.test_X_i = cell(size(obj.train_X_i));
-%     obj.test_X_j = cell(size(obj.train_X_i));
-%     obj.test_X_v = cell(size(obj.train_X_i));
-%     obj.D_X = length(obj.train_X_i);
     temp = load(filename, 'data');
     obj.M         = temp.data.M;
     obj.N         = temp.data.N;

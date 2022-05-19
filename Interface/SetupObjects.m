@@ -28,7 +28,6 @@ function [ RFM, MCMC ] = SetupObjects( params )
   UU_undirected = value_or_default(params, 'UU_undirected', true);
   UU_Folds = value_or_default(params, 'UU_Folds', 5);
   UU_Fold = value_or_default(params, 'UU_Fold', 1);
-  UU_FoldFlip = value_or_default(params, 'UU_FoldFlip', false);
   
   UU_KernelName = value_or_default(params, 'UU_KernelName', 'covSEard_sym');
   UU_DiagNoise = value_or_default(params, 'UU_DiagNoise', log(0.1));
@@ -94,9 +93,6 @@ function [ RFM, MCMC ] = SetupObjects( params )
   UU_Data.LoadFromFile (UU_Filename, UU_square, UU_undirected);
   Data = UU_Data.Partition (UU_Folds, UU_Fold, Seed);
   delete (UU_Data);
-  if UU_FoldFlip
-    Data.Flip;
-  end
   RFM.data_UU = Data;
   
   RFM.ObservationModel_UU = UU_ObservationModel;
