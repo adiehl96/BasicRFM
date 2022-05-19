@@ -8,7 +8,6 @@ function Initialise( obj )
   %%%% take external input, sequential initialisation
   
   obj.Init_U_Rand
-  obj.Init_V_Rand
   obj.Init_pp_T;
   
   % Create bulky memory items etc

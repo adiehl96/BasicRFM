@@ -17,11 +17,7 @@ classdef hcMCMC_SS_RFM < handle
     U_width = 4;
     U_step_out = true;
     U_max_attempts = 6;
-    
-    V_width = 4;
-    V_step_out = true;
-    V_max_attempts = 6;
-    
+        
     pp_width = 4;
     pp_step_out = false;
     pp_max_attempts = 6;
@@ -82,8 +78,6 @@ classdef hcMCMC_SS_RFM < handle
     % Constructor
     function obj = hcMCMC_SS_RFM
       obj.kern_par_widths.UU = [0.5; 0.5; 0.1];
-      obj.kern_par_widths.VV = [0.5; 0.5; 0.1];
-      obj.kern_par_widths.UV = [0.5; 0.5; 0.1];
     end
     
   end

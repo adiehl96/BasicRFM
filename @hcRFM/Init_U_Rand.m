@@ -6,10 +6,6 @@ function Init_U_Rand( obj )
 
   if ~isempty(obj.data_UU.M)
     rows = obj.data_UU.M{1};
-  elseif ~isempty(obj.data_UV.M)
-    rows = obj.data_UV.M{1};
-  elseif ~isempty(obj.data_UCov.M)
-    rows = obj.data_UCov.M{1};
   else
     rows = 0;
   end
