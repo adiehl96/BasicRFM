@@ -9,6 +9,10 @@ Neural Information Processing Systems, 2012
 ## Usage 
 See the 'Demos' folder to get started
 
+## Original Code
+The code in the main branch is cleaned, with any superfluous code removed. The full original code can be found on the branch [original](https://github.com/adiehl96/BasicRFM/tree/original). The only changes done on the original branch are the following:
+* Added .gitignore files to the directories `DataFolds` and `PartialResults`. These are empty directories that hold temporary files, which are needed to run the code.
+
 ## License
 Copyright (C) 2013, [James Robert Lloyd](https://github.com/jamesrobertlloyd)
 
