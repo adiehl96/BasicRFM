@@ -114,12 +114,7 @@ classdef hcRFM < handle
     performance = Performance (obj, predict, prediction); % Returns a struct with various error parameters
     performance = EvaluatePerformance_U (obj, prediction); % Returns a struct with various 
                                                                 % error parameters
-                                                                
-    % Geweke routines
-    
-    SampleParamsPrior (obj);
-    SampleData (obj);
-    
+                                                                    
     % Utilities
 
     new_RFM = Duplicate (obj);

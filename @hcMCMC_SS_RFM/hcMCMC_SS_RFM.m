@@ -41,7 +41,6 @@ classdef hcMCMC_SS_RFM < handle
     plot_modulus = 1;
     talk_modulus = 1;
     
-    geweke_modulus = 10;
     
     burn = 200;
     iterations = 1000;
@@ -58,11 +57,9 @@ classdef hcMCMC_SS_RFM < handle
     % Results
     
     MAP;
-    elapsed = 0;
     
     % Experimentation practicalities
     
-    split_experiment = false;
     batch = 0;
     batches = 0;
     predictions_sum = cell(0);
@@ -73,7 +70,6 @@ classdef hcMCMC_SS_RFM < handle
       
     Sample (obj, newrun); % Perform MCMC
     SampleStep (obj, i); % Perform one MCMC update
-    GewekeTest (obj, test_function); % Perform Geweke MCMC test
     
     % Constructor
     function obj = hcMCMC_SS_RFM

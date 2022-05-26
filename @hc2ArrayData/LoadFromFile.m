@@ -5,7 +5,7 @@ function LoadFromFile( obj, filename, square, undirected )
 % James Lloyd, June 2012
 
   % Save filename for future use
-  obj.file_name = filename;  
+  obj.file_name = filename;
      
   % Open file
     obj.D_X = 1;

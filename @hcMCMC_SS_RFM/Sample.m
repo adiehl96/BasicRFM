@@ -9,9 +9,6 @@ function Sample( obj, newrun )
     newrun = true;
   end
 
-  % Start the timer
-  tic;
-
   % Initialise the model
   
   if newrun
@@ -22,7 +19,6 @@ function Sample( obj, newrun )
       case InitialisationMethods.PCA
         obj.RFM.Initialise_PCA;
     end
-    obj.elapsed = 0;
   else
     % Just initialise the cache in case anything was not up to date
     obj.RFM.Init_Cache;
@@ -70,7 +66,6 @@ function Sample( obj, newrun )
           obj.RFM.Init_pp_T;
         case InitialisationMethods.MAPU
           obj.RFM.Init_U_MAP;
-          %obj.RFM.Init_V_MAP;
         case InitialisationMethods.Both
           if mod(repeat, 2) == 1
             obj.RFM.Init_U_MAP;
@@ -158,40 +153,13 @@ function Sample( obj, newrun )
   % Compute average predictions, errors and AUC - this might not live here
   % ultimately
   
-  if ~obj.split_experiment
-    obj.predictions_average = obj.predictions{obj.burn+1};
-    for i = (obj.burn+2):(obj.burn+obj.iterations)
-      obj.predictions_average = obj.RFM.SumPredictions (obj.predictions_average, ...
-                                                        obj.predictions{i});
-    end
-    obj.predictions_average = obj.RFM.DividePredictions ...
-                               (obj.predictions_average, obj.iterations);
-  else
-    if obj.batch == 1
-      % Create sum of predictions struct
-      obj.predictions_sum = obj.predictions{obj.burn+1};
-      range = (obj.burn+2):end_index;
-    else
-      range = start_index:end_index;
-    end
-    if obj.batch > 0
-      % Add to sum, and produce most up to date predictions
-      for i = range
-        obj.predictions_sum = obj.RFM.SumPredictions (obj.predictions_sum, ...
+  obj.predictions_average = obj.predictions{obj.burn+1};
+  for i = (obj.burn+2):(obj.burn+obj.iterations)
+    obj.predictions_average = obj.RFM.SumPredictions (obj.predictions_average, ...
                                                       obj.predictions{i});
-      end
-      obj.predictions_average = obj.RFM.DividePredictions ...
-                                (obj.predictions_sum, max(range) - obj.burn);
-    else
-      % Return some garbage just in case something relies upon the
-      % structure existing
-      obj.predictions_average = obj.predictions{start_index};
-    end
   end
-
-  % Stop the timer                         
-                           
-  obj.elapsed = toc + obj.elapsed; %Includes any previous time
+  obj.predictions_average = obj.RFM.DividePredictions ...
+                              (obj.predictions_average, obj.iterations);
   
 end
 

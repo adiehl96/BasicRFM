@@ -29,7 +29,6 @@ classdef vcKernel
       
     llh = Prior(obj); % Prior for parameters
     matrix = Matrix(obj, X, Z); % Calculate kernel matrix
-    new = SampleParamsPrior(obj); % Sample parameters from prior
     
   end
   
