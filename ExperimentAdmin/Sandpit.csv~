@@ -1,1 +1,0 @@
-sushi_100_10_ff_U01V01_1of5,UV_Filename = 'sushi_cf_100_10_stand.mat',U_Dim = 01,V_Dim = 01,surf_sample = false,pp_iterations = 01,UV_Prior = KernelPriors.LogNormals,UV_Fold = 01,UV_Folds = 05,burn = 200,iterations = 1000,plot_modulus = 1000000,init_method = InitialisationMethods.None,UV_ObservationModel = ObservationModels.Gaussian
