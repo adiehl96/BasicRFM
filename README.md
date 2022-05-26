@@ -14,7 +14,7 @@ Neural Information Processing Systems, 2012
 Contact [James Robert Lloyd](http://mlg.eng.cam.ac.uk/lloyd/) for more information if required.
 
 ### Warning
-Exit Matlab after every execution to reset the environment. If you run the code repeatedly without exiting Matlab in between, the results will deviate from the paper.
+Exit Matlab after every execution to reset the environment. If you run the code repeatedly without exiting Matlab in between, the results will deviate from the published results.
 
 
 ## Original Code
