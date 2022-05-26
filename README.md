@@ -13,6 +13,10 @@ Neural Information Processing Systems, 2012
 
 Contact [James Robert Lloyd](http://mlg.eng.cam.ac.uk/lloyd/) for more information if required.
 
+### Warning
+Exit Matlab after every execution to reset the environment. If you run the code repeatedly, the results will change.
+
+
 ## Original Code
 The code in the main branch is cleaned, with any superfluous code removed. The full original code can be downloaded from the [website](https://jamesrobertlloyd.com/assets/BasicRFM.tar.gz) of the first author or from [github](https://github.com/adiehl96/BasicRFM/files/8727738/BasicRFM.tar.gz). Alternatively, it can be viewed on the branch [original](https://github.com/adiehl96/BasicRFM/tree/original). The only changes done on the branch original are the following:
 * Added .gitignore files to the directories `DataFolds` and `PartialResults`. These are empty directories that hold temporary files, which are needed to run the code.
