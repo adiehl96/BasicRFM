@@ -1,9 +1,7 @@
-clear all;
-cd ..
 generic_startup;
 
 params.SaveFilename = 'temp.mat';
-params.UU_Filename = 'HighSchool.csv';
+params.UU_Filename = '2Clique100.csv';
 params.U_Dim = 01;
 params.UU_Folds = 01;
 params.burn = 0;

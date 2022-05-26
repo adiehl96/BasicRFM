@@ -7,7 +7,11 @@ James Robert Lloyd, Peter Orbanz, Zoubin Ghahramani, Daniel Roy
 Neural Information Processing Systems, 2012
 ```
 ## Usage 
-See the 'Demos' folder to get started
+1. Change your Matlab working directory to this folder.
+2. Open highschool_predict.m or highschool_plot.m or clique_plot.m.
+3. Run the code.
+
+Contact [James Robert Lloyd](http://mlg.eng.cam.ac.uk/lloyd/) for more information if required.
 
 ## Original Code
 The code in the main branch is cleaned, with any superfluous code removed. The full original code can be downloaded from the [website](https://jamesrobertlloyd.com/assets/BasicRFM.tar.gz) of the first author or from [github](https://github.com/adiehl96/BasicRFM/files/8727738/BasicRFM.tar.gz). Alternatively, it can be viewed on the branch [original](https://github.com/adiehl96/BasicRFM/tree/original). The only changes done on the branch original are the following:

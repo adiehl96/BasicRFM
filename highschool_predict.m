@@ -1,5 +1,3 @@
-clear all;
-cd ..
 generic_startup;
 
 params.SaveFilename = 'temp.mat'; % Location to save traces etc.
