@@ -1,10 +1,5 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-
-title: "Random function priors for exchangeable arrays with applications to graphs and relational data"
-doi: 10.5281/zenodo.1234
-date-released: 2022-05-30
-url: "https://proceedings.neurips.cc/paper/2012/file/df6c9756b2334cc5008c115486124bfe-Paper.pdf"
 preferred-citation: 
   type: conference-paper
   authors:
