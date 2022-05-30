@@ -6,6 +6,7 @@ Random function priors for exchangeable arrays with applications to graphs and r
 James Robert Lloyd, Peter Orbanz, Zoubin Ghahramani, Daniel Roy
 Neural Information Processing Systems, 2012
 ```
+The paper can be found on [nips.cc](https://proceedings.nips.cc/paper/2012/hash/df6c9756b2334cc5008c115486124bfe-Abstract.html).
 ## Usage 
 1. Change your Matlab working directory to this folder.
 2. Open highschool_predict.m or highschool_plot.m or clique_plot.m.
