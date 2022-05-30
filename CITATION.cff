@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 preferred-citation:
-  type: article
+  type: conference-paper
   authors:
   - family-names: "Lloyd"
     given-names: "James Robert"
@@ -15,12 +15,7 @@ preferred-citation:
   - family-names: "Roy"
     given-names: "Daniel"
     orcid: "https://orcid.org/0000-0001-8930-0058"
-  doi: "10.0000/00000"
-  journal: "Journal Title"
-  month: 9
-  start: 1 # First page number
-  end: 10 # Last page number
-  title: "My awesome research software"
-  issue: 1
-  volume: 1
-  year: 2021
+  title: "Random function priors for exchangeable arrays with applications to graphs and relational data"
+  volume: 25
+  year: 2012
+  url: "https://proceedings.neurips.cc/paper/2012/file/df6c9756b2334cc5008c115486124bfe-Paper.pdf"
