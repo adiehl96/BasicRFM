@@ -79,7 +79,7 @@ function Sample( obj, newrun )
 
   % Initialise MCMC traces if starting a new run
 
-  if newrun && (~obj.split_experiment)
+  if newrun
     obj.RFM_state   = cell(obj.burn + obj.iterations, 1);
     obj.predictions = cell(obj.burn + obj.iterations, 1);
     obj.performance = cell(obj.burn + obj.iterations, 1);
@@ -87,21 +87,9 @@ function Sample( obj, newrun )
     start_index = 1;
     end_index = obj.burn + obj.iterations;
   else
-    if ~obj.split_experiment
-      % We are extending a previous experiment
-      start_index = length(obj.RFM_state) + 1;
-      end_index = obj.burn + obj.iterations;
-    else
-      % Start at the appropriate batch number
-      if obj.batch == 0
-        start_index = 1;
-        end_index = obj.burn;
-      else
-        start_index = obj.burn + floor(((obj.batch - 1) * obj.iterations / obj.batches)) + 1;
-        end_index = obj.burn + min(floor((obj.batch * obj.iterations / obj.batches)), ...
-                                   obj.iterations);
-      end
-    end
+    % We are extending a previous experiment
+    start_index = length(obj.RFM_state) + 1;
+    end_index = obj.burn + obj.iterations;
   end
   
   % Main MCMC iterations
@@ -139,16 +127,6 @@ function Sample( obj, newrun )
     end
    
   end
-
-  % Identify MAP - this might not live here ultimately
-  
-%   max_llh = -inf;
-%   for i = (obj.burn+1):(obj.burn+obj.iterations)
-%     if obj.RFM_state{i}.llh > max_llh
-%       max_llh = obj.RFM_state{i}.llh;
-%       obj.MAP = obj.RFM_state{i};
-%     end
-%   end
 
   % Compute average predictions, errors and AUC - this might not live here
   % ultimately

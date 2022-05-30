@@ -20,7 +20,6 @@ function LoadFromFile( obj, filename, square, undirected )
     obj.test_X_v  = cell(obj.D_X, 1);
     obj.test_X_i  = cell(obj.D_X, 1);
     obj.test_X_j  = cell(obj.D_X, 1);
-    %disp(obj.train_X_v)
     % Populate everything as training data
     i = 1;
     disp(i)
@@ -30,15 +29,12 @@ function LoadFromFile( obj, filename, square, undirected )
     O = ones(size(R{i}));
     disp(size(O))
     if undirected && (size(R{i}, 1) == size(R{i}, 2)) && (all(all(R{i} == R{i}')))
-      disp("condition held")
       % Undirected
       O = triu(O);
     end
-    disp(sum(sum(O)))
     if square && (size(R{i}, 1) == size(R{i}, 2))
       O = O - diag(diag(O));
     end
-    disp(sum(sum(O)))
     [obj.train_X_i{i}, obj.train_X_j{i}] = find(O);
     
     obj.train_X_v{i} = R{i}(O>0);

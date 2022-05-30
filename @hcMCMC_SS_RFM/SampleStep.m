@@ -18,9 +18,6 @@ function SampleStep( obj, i )
     obj.RFM.SS_ArrayKernParams (obj.kern_par_widths, obj.kern_par_step_out, ...
                                 obj.kern_par_max_attempts);
   end
-  if mod(i, obj.data_par_modulus) == 0 
-    obj.RFM.GS_DataParams;
-  end
   if mod(i, obj.T_modulus) == 0 
     obj.RFM.ESS_T (round(obj.T_iterations / 2));
   end
