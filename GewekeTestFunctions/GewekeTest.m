@@ -8,7 +8,7 @@ function GewekeTest( params )
   
   if nargin < 1
     % Setup up Geweke specific default behaviour
-    params.UU_Filename = '2x2_1_Obs.mat';
+    params.UU_Filename = 'Highschool.csv';
   end
   
   % Other Geweke necessities

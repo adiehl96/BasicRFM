@@ -1,4 +1,4 @@
-function Initialise( obj )
+function Initialise_Rand( obj )
 %INITIALISE Prepares the structure for sampling
 % Exact behaviour depends on initialisation mode
 %

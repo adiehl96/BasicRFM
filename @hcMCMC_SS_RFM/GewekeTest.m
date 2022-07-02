@@ -13,9 +13,10 @@ function GewekeTest( obj, test_function )
 
   % Initialise the models
   InitialiseRand (Official_Random_Number);
-  RFM_Prior.Initialise;
+  RFM_Prior.Initialise_Rand;
+
   InitialiseRand (Official_Random_Number);
-  RFM_Posterior.Initialise;
+  RFM_Posterior.Initialise_Rand;
 
   % Initialise MCMC traces
 
