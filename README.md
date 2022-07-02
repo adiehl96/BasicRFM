@@ -21,6 +21,7 @@ Exit Matlab after every execution to reset the environment. If you run the code 
 ## Original Code
 The code in the main branch is cleaned, with any superfluous code removed. The full original code can be downloaded from the [website](https://jamesrobertlloyd.com/assets/BasicRFM.tar.gz) of the first author or from [github](https://github.com/adiehl96/BasicRFM/files/8727738/BasicRFM.tar.gz). Alternatively, it can be viewed on the branch [original](https://github.com/adiehl96/BasicRFM/tree/original). The only changes done on the branch original are the following:
 * Added .gitignore files to the directories `DataFolds` and `PartialResults`. These are empty directories that hold temporary files, which are needed to run the code.
+* Fixed the geweke test code, changes can be viewed [here](https://github.com/adiehl96/BasicRFM/commit/bdeca39e0cdca3c7a90411fab4cb431a8e5be078).
 
 ## License
 Copyright (C) 2013, [James Robert Lloyd](https://github.com/jamesrobertlloyd)
