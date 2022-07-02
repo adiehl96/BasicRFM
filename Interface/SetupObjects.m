@@ -84,7 +84,7 @@ function [ RFM, MCMC ] = SetupObjects( params )
   RFM = hcRFM;
   MCMC = hcMCMC_SS_RFM;
   MCMC.RFM = RFM;
-  
+  MCMC.UU_Filename = UU_Filename;
   RFM.D_L_U = U_Dim;
 
   % Load UU array

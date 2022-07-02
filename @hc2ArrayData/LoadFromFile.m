@@ -22,12 +22,10 @@ function LoadFromFile( obj, filename, square, undirected )
     obj.test_X_j  = cell(obj.D_X, 1);
     % Populate everything as training data
     i = 1;
-    disp(i)
     % Dimensions
     [obj.M{i}, obj.N{i}] = size(R{i});
     % Training data
     O = ones(size(R{i}));
-    disp(size(O))
     if undirected && (size(R{i}, 1) == size(R{i}, 2)) && (all(all(R{i} == R{i}')))
       % Undirected
       O = triu(O);

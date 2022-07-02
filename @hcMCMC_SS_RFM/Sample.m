@@ -125,9 +125,81 @@ function Sample( obj, newrun )
       obj.RFM.Talk;
       fprintf('\n');
     end
-   
   end
+  disp(obj.performance{1}.UU{1})
+  AUC = [];
+  KLS = [];
+  CLS = [];
+  ClassifierError = [];
+  RMSE = [];
+  U = [];
+  pp_UU = [];
+  T_UU = [];
+  DataPrecision_UU = [];
+  llh = [];
+  name = [];
+  params = [];
+  diagNoise = [];
+  jitter = [];
+  priorType = [];
+  priorParams = [];
+  noiseParams = [];
+  for i = 1:length(obj.RFM_state)
+    AUC = cat(1, AUC, [obj.performance{i}.UU{1}.AUC]);
+    KLS = cat(1, KLS, [obj.performance{i}.UU{1}.KLS]);
+    CLS = cat(1, CLS, [obj.performance{i}.UU{1}.CLS]);
+    ClassifierError = cat(1, ClassifierError, [obj.performance{i}.UU{1}.ClassifierError]);
+    RMSE = cat(1, RMSE, [obj.performance{i}.UU{1}.RMSE]);
+    U = cat(1, U, obj.RFM_state{i}.U);
+    pp_UU = cat(1,pp_UU,obj.RFM_state{i}.pp_UU{1});
+    T_UU = cat(1, T_UU, obj.RFM_state{i}.T_UU{1});
+    DataPrecision_UU = cat(1, DataPrecision_UU, [obj.RFM_state{i}.DataPrecision_UU]);
+    llh = cat(1,llh,[obj.RFM_state{i}.llh]);
+    % Kernel Params
+    name = cat(1, name, [string(obj.RFM_state{i}.arrayKern_UU.name)]);
+    params = cat(1, params, obj.RFM_state{i}.arrayKern_UU.params);
+    diagNoise = cat(1, diagNoise, obj.RFM_state{i}.arrayKern_UU.diagNoise);
+    jitter = cat(1, jitter, obj.RFM_state{i}.arrayKern_UU.jitter);
+    priorType = cat(1, priorType, [string(obj.RFM_state{i}.arrayKern_UU.priorType)]);
+    priorParams = cat(1, priorParams, obj.RFM_state{i}.arrayKern_UU.priorParams(:));
+    noiseParams = cat(1, noiseParams, obj.RFM_state{i}.arrayKern_UU.noiseParams);
+  end
+  
+  fid = fopen('output/ID.txt','wt');
+  fprintf(fid, '%s', obj.UU_Filename);
+  fclose(fid);
 
+  fid = fopen('output/iterations.txt','wt');
+  fprintf(fid, '%s', length(obj.RFM_state));
+  fclose(fid);
+
+  writematrix(AUC,"output/AUC.csv")
+  writematrix(KLS,"output/KLS.csv")
+  writematrix(CLS,"output/CLS.csv")
+  writematrix(ClassifierError,"output/ClassifierError.csv")
+  writematrix(RMSE,"output/RMSE.csv")
+  writematrix(U,"output/U.csv")
+  writematrix(pp_UU,"output/pp_UU.csv")
+  writematrix(T_UU,"output/T_UU.csv")
+  writematrix(DataPrecision_UU, "output/DataPrecision_UU.csv")
+  writematrix(llh, "output/llh.csv")
+  writematrix(name, "output/name.csv")
+  writematrix(params, "output/params.csv")
+  writematrix(diagNoise, "output/diagNoise.csv")
+  writematrix(jitter, "output/jitter.csv")
+  writematrix(priorType, "output/priorType.csv")
+  writematrix(priorParams,"output/priorParams.csv")
+  writematrix(noiseParams, "output/noiseParams.csv")
+%   disp(obj.RFM_state{1}.arrayKern_UU.priorParams)
+  
+%   for i = 1:length(obj.RFM_state)
+%     disp( obj.RFM_state{i} )
+%     writematrix(obj.RFM_state{i}.pp_UU,"lel.csv")
+%     mat2np(obj.RFM_state{i}.pp_UU, 'pp_UU.pkl', 'float64')
+%     writestruct(obj.RFM_state{i},"band.xml")
+%     disp(size(obj.RFM_state))
+%   end
+  % mat2np(obj.RFM_state, 'a.pkl', 'float64')
   % Compute average predictions, errors and AUC - this might not live here
   % ultimately
   

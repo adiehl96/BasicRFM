@@ -63,6 +63,7 @@ classdef hcMCMC_SS_RFM < handle
     batch = 0;
     batches = 0;
     predictions_sum = cell(0);
+    UU_Filename = "";
     
   end
   
