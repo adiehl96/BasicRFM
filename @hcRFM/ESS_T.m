@@ -12,7 +12,7 @@ function ESS_T( obj, iterations )
       % Perform one ESS step
       % TODO - pass T by reference using object wrapper - better for memory
       params.precision = obj.DataPrecision_UU;
-      [obj.T_UU{i} ~] = gppu_elliptical(obj.T_UU{i}, obj.chol_K_pp_pp_UU{i}, ...
+      [obj.T_UU{i}, ~] = gppu_elliptical(obj.T_UU{i}, obj.chol_K_pp_pp_UU{i}, ...
                         @(T) Cond_llh_2array (K_pp_pp_invK_ppip_t * T, obj.data_UU.train_X_v{i}, obj.ObservationModel_UU, params));
     end
   end
