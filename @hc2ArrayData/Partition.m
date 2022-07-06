@@ -68,10 +68,10 @@ function data = Partition( obj, folds, fold, seed )
       data.test_X_j{i}  = obj.train_X_j{i}(predict);
       data.test_X_v{i}  = obj.train_X_v{i}(predict);
     end
-    if ~isempty(fold_file_name)
-      % Save the fold for later use
-      save(fold_file_name, 'data');
-    end
+%     if ~isempty(fold_file_name)
+%       % Save the fold for later use
+%       save(fold_file_name, 'data');
+%     end
   end
 end
 

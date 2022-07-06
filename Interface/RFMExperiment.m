@@ -36,7 +36,7 @@ function RFMExperiment( params )
     save (SaveFilename, 'Performance', 'RFM', 'MCMC');
   else
     if SavePrediction
-      Prediction = MCMC.predictions_average; %#ok<NASGU>
+      Prediction = MCMC.predictions_average;
       save (SaveFilename, 'Performance', 'Prediction');
     else
       save (SaveFilename, 'Performance');
