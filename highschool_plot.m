@@ -1,7 +1,7 @@
 generic_startup;
 
-params.SaveFilename = 'temp.mat';
-params.UU_Filename = 'HighSchool.csv';
+% params.SaveFilename = 'temp.mat';
+params.UU_Filename = 'Protein.csv';
 params.U_Dim = 01;
 params.UU_Folds = 01;
 params.burn = 0;
