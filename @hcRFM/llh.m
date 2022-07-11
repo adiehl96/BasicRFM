@@ -18,7 +18,6 @@ function llh = llh( obj )
     obj.UpdateW_UU;
     llh = llh + Cond_llh_2array (obj.W_UU{i}, obj.data_UU.train_X_v{i}, ...
                                  obj.ObservationModel_UU, params);
-  end  
-
+  end
 end
 
