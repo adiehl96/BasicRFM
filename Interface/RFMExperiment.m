@@ -9,7 +9,7 @@ function RFMExperiment( params )
   if nargin < 1
     params = [];
   end
-  SaveFilename = value_or_default(params, 'SaveFilename', 'DefaultSaveFile.mat');
+%   SaveFilename = value_or_default(params, 'SaveFilename', 'DefaultSaveFile.mat');
   SaveTraces = value_or_default(params, 'SaveTraces', false);
   SavePrediction = value_or_default(params, 'SavePrediction', false);
   
@@ -33,13 +33,13 @@ function RFMExperiment( params )
   % Also, should I save MAP when not saving the trace?
   
   if SaveTraces
-    save (SaveFilename, 'Performance', 'RFM', 'MCMC');
+%     save (SaveFilename, 'Performance', 'RFM', 'MCMC');
   else
     if SavePrediction
       Prediction = MCMC.predictions_average;
-      save (SaveFilename, 'Performance', 'Prediction');
+%       save (SaveFilename, 'Performance', 'Prediction');
     else
-      save (SaveFilename, 'Performance');
+%       save (SaveFilename, 'Performance');
     end
   end
   delete (RFM);
