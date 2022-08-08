@@ -13,8 +13,13 @@ function llh = Cond_llh_pp_UU_No_Update( obj, pp_index, array_index )
   % Data llh
   obj.W_UU{i} = obj.K_ip_pp_UU{i} * (obj.K_pp_pp_UU{i} \ obj.T_UU{i});
   params.precision = obj.DataPrecision_UU;
-  llh = llh + Cond_llh_2array (obj.W_UU{i}, obj.data_UU.train_X_v{i}, ...
-                               obj.ObservationModel_UU, params);
+  llh = llh + Cond_llh_2array (obj.W_UU{i}, obj.data_UU.train_X_v{i}, obj.ObservationModel_UU, params);
+
+  obj.group_ip_UU{i} = CreateGPInputPoints (obj.group_UU.train_X_i{i}, obj.group_UU.train_X_j{i}, obj.U);
+  obj.K_group_pp_UU{i} = obj.arrayKern_UU.Matrix (obj.group_ip_UU{i}, obj.pp_UU{i});
+  obj.group_w_UU{i} = logistic(obj.K_group_pp_UU{i} * (obj.K_pp_pp_UU{i} \ obj.T_UU{i}), 1);
+  llh = llh + Cond_llh_2array (obj.group_w_UU{i}, obj.group_UU.train_X_v{i}, obj.ObservationModel_UU, params);
+
   % Prior for pseudo points
   llh = llh + obj.Prior_pp_UU (i); % TODO - This could be slightly more efficient
 

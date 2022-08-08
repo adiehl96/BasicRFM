@@ -129,6 +129,12 @@ function [ RFM, MCMC ] = SetupObjects( params )
   Data = UU_Data.Partition (UU_Folds, UU_Fold, Seed);
   delete (UU_Data);
   RFM.data_UU = Data;
+  disp(size(RFM.data_UU.test_X_v{1}))
+  
+  UU_Group_Filename = value_or_default(params, 'UU_Group_Filename', '');
+  UU_Group = hc2ArrayData;
+  UU_Group.LoadFromFile (UU_Group_Filename, UU_square, UU_undirected);
+  RFM.group_UU = UU_Group;
   
   RFM.ObservationModel_UU = UU_ObservationModel;
   RFM.DataPrecision_UU = UU_DataPrecision;

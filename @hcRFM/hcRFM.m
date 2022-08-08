@@ -42,6 +42,8 @@ classdef hcRFM < handle
     % Local reference to data
     
     data_UU
+
+    group_UU % Additional observations, that might improve W_UU
         
     % Dimensions / specifications of model
     
@@ -69,6 +71,7 @@ classdef hcRFM < handle
     ip_UU = cell(0); % 2-array training input points
     
     pred_ip_UU = cell(0); % 2-array test input points
+    group_ip_UU = cell(0); % 2-array additional observations
     K_ip_pp_UU = cell(0); % Kernel matrix between input and pseudo points
     K_pp_pp_UU = cell(0); % Kernel matrix between pseudo points
     chol_K_pp_pp_UU = cell(0); % Cholesky decompostion of above
@@ -83,6 +86,8 @@ classdef hcRFM < handle
     
     W_UU = cell(0); % Output of GP at input points
     K_pred_pp_UU = cell(0); % Kernel matrix between prediction and pseudo points
+    K_group_pp_UU = cell(0); % Kernel matrix between group and pseudo points
+    group_w_UU = cell(0); % Kernel matrix between group and pseudo points
     
   end
   
