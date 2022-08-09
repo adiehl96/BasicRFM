@@ -135,8 +135,11 @@ function Sample( obj, newrun )
   RMSE = [];
   U = [];
   W_UU = [];
-  x_i = [];
-  x_j = [];
+  
+  train_x_i = [];
+  train_x_j = [];
+  test_x_i = [];
+  test_x_j = [];
   pp_UU = [];
   ip_UU = [];
   T_UU = [];
@@ -173,10 +176,10 @@ function Sample( obj, newrun )
     noiseParams = cat(1, noiseParams, obj.RFM_state{i}.arrayKern_UU.noiseParams);
   end
 
-  x_i = cat(1, x_i, obj.RFM.data_UU.train_X_i{1});
-  x_i = cat(1, x_i, obj.RFM.data_UU.test_X_i{1});
-  x_j = cat(1, x_j, obj.RFM.data_UU.train_X_j{1});
-  x_j = cat(1, x_j, obj.RFM.data_UU.test_X_j{1});
+  train_x_i = cat(1, train_x_i, obj.RFM.data_UU.train_X_i{1});
+  test_x_i = cat(1, test_x_i, obj.RFM.data_UU.test_X_i{1});
+  train_x_j = cat(1, train_x_j, obj.RFM.data_UU.train_X_j{1});
+  test_x_j = cat(1, test_x_j, obj.RFM.data_UU.test_X_j{1});
 
   fid = fopen('output/ID.txt','wt');
   fprintf(fid, '%s', obj.UU_Filename);
@@ -193,8 +196,10 @@ function Sample( obj, newrun )
   writematrix(RMSE,"output/RMSE.csv")
   writematrix(U,"output/U.csv")
   writematrix(W_UU,"output/W_UU.csv")
-  writematrix(x_i,"output/x_i.csv")
-  writematrix(x_j,"output/x_j.csv")
+  writematrix(train_x_i,"output/train_x_i.csv")
+  writematrix(test_x_i,"output/test_x_i.csv")
+  writematrix(train_x_j,"output/train_x_j.csv")
+  writematrix(test_x_j,"output/test_x_j.csv")
   writematrix(pp_UU,"output/pp_UU.csv")
   writematrix(ip_UU,"output/ip_UU.csv")
   writematrix(T_UU,"output/T_UU.csv")
